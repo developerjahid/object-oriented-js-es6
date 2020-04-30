@@ -1,30 +1,23 @@
-//This Keyword
-let rect = {
-    width: 100,
-    height: 50,
-    draw: function() {
-        console.log('I am a rectangle')
-        this.printProperties()
-        console.log(this)
-    },
-    printProperties: function() {
-        console.log('My width is ' + this.weight)
-        console.log('My height is ' + this.height)
+//Class using factory pattern
+var createRect = function(width, height) {
+    return {
+        width: width,
+        height: height,
+        draw: function() {
+            console.log('I am a rectangle')
+            this.printProperties()
+        },
+        printProperties: function() {
+            console.log('My width is ' + this.width)
+            console.log('My height is ' + this.height)
+        }
     }
 }
 
-rect.draw()
+var rect2 = createRect(6, 8)
 
-function myFunc() {
-    console.log(this)
-}
+rect2.draw()
 
-new myFunc
+var rect3 = createRect(5, 393)
 
-var another = {
-    weight: 10,
-    height: 20,
-    print: rect.printProperties
-}
-
-another.print()
+rect3.draw()
