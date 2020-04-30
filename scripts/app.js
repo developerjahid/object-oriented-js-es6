@@ -1,28 +1,17 @@
-//New Keyword
-var Rectangle = function(width, height) {
-    this.width = width
-    this.height = height
-    this.draw = function() {
-        console.log('I am a rectangle')
-        this.printProperties()
-    }
-    this.printProperties = function() {
-        console.log('My width is ' + this.width)
-        console.log('My height is ' + this.height)
-    }
+//apply, call, bind
+function test(c, d) {
+    console.log(this)
+    console.log(this.a + this.b + c + d)
 }
 
-var rect3 = new Rectangle(4, 4)
-rect3.draw()
+//Call, Apply
+test.call({a: 4, b: 5}, 2, 1)
+test.apply({a: 4, b: 5}, [2, 1])
 
-function myNew(constructor) {
-    var obj = {}
-    Object.setPrototypeOf(obj, constructor.prototype)
-    var argsArray = Array.prototype.slice.apply(arguments)
-    constructor.apply(obj, argsArray.slice(1))
+//bind
+var testBind = test.bind({a: 4, b: 5}, 2, 1)
+testBind()
 
-    return obj
-}
-
-var rect4 = myNew(Rectangle, 67, 87)
-rect4.draw()
+//bind
+var testBind2 = test.bind({a: 4, b: 5})
+testBind2(5, 8)
