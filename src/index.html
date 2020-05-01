@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Object Oriented Programming</title>
-    <!--StyleSheets-->
-    <link rel="stylesheet" href="./styles/app.css">
+
 </head>
 <body>
     <h1>Object Oriented Javascript</h1>
     <!--Script-->
-    <script src="./scripts/app.js"></script>
+    <script>
+        //Destructuring
+        person = {
+            name: 'Jahid Hasan',
+            email: 'jhpabel@gmail.com',
+            address: {
+                city: 'Dhaka',
+                country: 'Bangladesh'
+            }
+        }
+
+        let { name, email, address: {city, country}} = person
+        console.log(name, email, city, country)
+    </script>
 </body>
 </html>
